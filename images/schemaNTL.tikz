@@ -1,0 +1,16 @@
+\documentclass{standalone}
+
+\begin{document}
+	    \begin{tikzpicture}[thick,scale=2]
+		\coordinate (WS0) at (0,0);
+		\coordinate (WS1) at (1,0);
+		\coordinate (WS2) at (2,0);
+		\coordinate (WS3) at (3,0);
+		\draw[thick,-] (0,0) -- (3,0) node[anchor=north west] {};   
+		\foreach \x in {0,1,2,3}
+		\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
+
+	    \end{tikzpicture}
+\end{document}
+
+

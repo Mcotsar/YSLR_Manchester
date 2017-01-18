@@ -1,0 +1,24 @@
+\documentclass{standalone}
+
+\begin{document}
+    \begin{tikzpicture}[thick,scale=3.5]
+		\coordinate (WS0) at (0,0);
+		\coordinate (WS1) at (1,0);
+		\coordinate (WS2) at (2,0);
+		\coordinate (WS3) at (3,0);
+		\draw[thick,-] (0,0) -- (3,0) node[anchor=north west] {};   
+		\foreach \x in {0,1,2,3}
+		\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
+
+
+		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=1cm] node[above,font=\scriptsize]{knowledge transmission} (WS3); 
+
+
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=.75cm	]  node[font=\scriptsize,pos=.60	,above]{$T_{0 \rightarrow 1}$} (WS1);
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1cm	]  node[font=\scriptsize,pos=.75	,above]{$T_{0 \rightarrow 2}$}(WS2);
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.25cm	]  node[font=\scriptsize,pos=.82		,above]{$T_{0 \rightarrow 3}$}(WS3);
+
+    \end{tikzpicture}
+
+\end{document}
+
