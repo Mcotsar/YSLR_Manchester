@@ -172,7 +172,7 @@ The patterns observed in the first 2 Principal Components suggests that amphorae
 {\textbf{Model }}
 \justify
 The observed pattern was further explored with a model based on classical random drift~\cite{bentley2004randomdriftandculturechange}. This approach allow us to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  
-We define a set $Pop$ of $N$ workshops sharing the same initial production techniques $P^{0}$ and positioned along a line at increasing distances (all workshops are positioned along the same river course).
+Mimiquing our original dataset We define a set $Pop$ of $5$ workshops sharing the same initial production techniques $P^{0}$ and positioned at the distance given in the Fig.~\ref{fig:betica}.
 Each workshop produce amphorae and change their production techniques by 1) modifying their own techniques or 2) copying one from another workshop.
 
 The algorithm is defined as following:   
@@ -214,9 +214,9 @@ The algorithm is defined as following:
 \begin{column}{1.025\onecolwid} %first subcolumn right
 {\textbf{Experiment \& Result}}\\
 \justify
-To test the impact of the distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$. Three level of bias are tested. For each level we run $100$ simulations with 4 workshops. Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
+To test the impact of the distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$. Three level of bias are tested. For each level we run $100$ simulations with 4 workshops. %Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
 
-Figure~\ref{fig:resmod} shows that variation in production is high only if there is no HT or if the transfer is strongly biased toward the closest neighbour.
+Figure~\ref{fig:resmod} shows that variation in production remains at the elvel of what we observe in the dataset only if there is VT.
     \begin{figure}[h!]
 	\begin{tabular}{cc}
 	    \centering
