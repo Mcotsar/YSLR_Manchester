@@ -133,9 +133,6 @@ We have analyzed 470 amphorae (fig.\ref{fig:betica}~(b)) from 5 different worksh
 
 Principal Component Analysis (PCA) was used to capture most of the variance of the 8 measurements into 2 variables. 
 
-%\xavi{You should use an acronym only if you use it a lot. If you just use it 2 times it's better to use the full term}
-
-%\xavi{This sentence is redundant (observations with measurement as variables). Better phrasing: Principal Component Analysis (PCA) allowed us to capture most of the variance of the 8 measurements into 2 variables}}
 
 \end{column}
 
@@ -213,7 +210,6 @@ The algorithm is defined as following:
     }
 \end{center}
 \end{column}
-%\xavi{Why do you explain just the initialization of the algorithm? Either you explain all of it, or explain the general process and then you show the algorithm.}
 
 \begin{column}{1.025\onecolwid} %first subcolumn right
 {\textbf{Experiment \& Result}}\\
@@ -221,13 +217,16 @@ The algorithm is defined as following:
 To test the impact of the distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$. Three level of bias are tested. For each level we run $100$ simulations with 4 workshops. Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
 
 Figure~\ref{fig:resmod} shows that variation in production is high only if there is no HT or if the transfer is strongly biased toward the closest neighbour.
-\vspace{-1cm}
     \begin{figure}[h!]
-    \centering
-	\includegraphics[width=0.5\linewidth]{images/interworkshopvar.pdf}
+	\begin{tabular}{cc}
+	    \centering
+	    External Diameter & Protruring Rim\\
+	    \includegraphics[width=0.4\linewidth]{images/ED_densities.pdf}&
+	    \includegraphics[width=0.4\linewidth]{images/PR_densities.pdf}\\
+	\end{tabular}
 \singlespace
 \vspace{-.8cm}
-\caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep in setup where the horizontal transfer probability varies (100 simulations per condition).}
+\caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep in setup where the horizontal transfer probability varies (100 simulations per condition). The red line correspond to the variation measured on the real data}
 	\label{fig:resmod}
     \end{figure}
 \vspace{-1cm}
