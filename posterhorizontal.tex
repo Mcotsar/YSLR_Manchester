@@ -2,6 +2,11 @@
 \documentclass[final]{beamer}
 
 
+\newcommand{\compresslist}{
+	\setlength{\itemsep}{.5pt}
+	\setlength{\parskip}{1pt}
+	\setlength{\parsep}{0pt}
+}
 
 \usepackage[scale=0.8,size=a1]{beamerposter} % Use the beamerposter package for laying out the poster
 
@@ -175,12 +180,11 @@ The pattern observed in the firsts 2 Principal Components suggests that amphorae
 %on the left
 {\textbf{Model }}
 \justify
-The observed pattern was further explored with a model based on classical random drift~\cite{bentley2004randomdriftandculturechange}. This approach allow us to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  
-Mimiquing our original dataset We define a set $Pop$ of $5$ workshops sharing the same initial production techniques $P^{0}$ and positioned at the distance given in the Fig.~\ref{fig:betica}.
-Each workshop produce amphorae and change their production techniques by 1) modifying their own techniques or 2) copying one from another workshop.
+We developed a model based on classical random drift~\cite{bentley2004randomdriftandculturechange} mimicking our original dataset. In this model, we define $5$ workshops all sharing the same production techniques $T^{0}$. 
+Each workshop produce amphorae and change their production techniques by:  modifying their own techniques (Vertical Transmission, VT) or by copying one from another workshop (Horizontal Transmission, HT). 
+%The probability that inovation occurs (the proba of a \emph{Vertical Transmission}, VT) is the same for everyone, whereas the probability that one workshop copies another (the proba of an \emph{Horizontal Transmission}, HT) depends on the distances between the workshops, distances that follow the positions given in the Fig.~\ref{fig:betica}.
 
-The algorithm is defined as following:   
-
+The algorithm is the following:   
 
 \begin{center}
     \fbox{
@@ -192,15 +196,15 @@ The algorithm is defined as following:
 		\footnotesize
 		\State INITIALIZATION:
 		\For{$i \in Pop$}
-		\State $P^{i} = P^{0}$
+		\State $T^{i} = T^{0}$
 		\EndFor
 		\State SIMULATION:
 		\Loop{$~step \in TimeSteps$}
 		\For{$i \in Pop$}
-		\State $AmphoraProduction(P^{i})$
+		\State $AmphoraProduction(T^{i})$
 		\If{$ (step \mod 100) = 0$}	
-		\State $P^{i}=Innovation(P^{i})$ \Comment{Vertical Transmission}
-		\State $P^{i}=RandomCopy(Pop)$	\Comment{Horizontal Transmission}
+		\State (1)$Innovation(T^{i})$ \Comment{Vertical Transmission, VT}
+		\State (2)$RandomCopy(T^{i},Pop)$	\Comment{Horizontal Transmission, HT}
 		\EndIf
 		\EndFor
 		\EndLoop
@@ -218,19 +222,21 @@ The algorithm is defined as following:
 \begin{column}{1.025\onecolwid} %first subcolumn right
 {\textbf{Experiment \& Result}}\\
 \justify
-To test the impact of the distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$. Three level of bias are tested. For each level we run $100$ simulations with 4 workshops. %Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
-
-Figure~\ref{fig:resmod} shows that variation in production remains at the elvel of what we observe in the dataset only if there is VT.
+To test the influence of HT and VT on the patterns observed we defined two models:\\
+\hspace{5mm}{\footnotesize\textbf{VT}}: proba of random copy between workshop is set to~$0$. Changes come from Vertical transmission only.\\
+\hspace{5mm}{\footnotesize\textbf{VT+HT}}: proba of random copy proportionnal to distance between workshops. Changes come from horizontal \emph{and} vertical transmission.\\
+%Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
+Fig.~\ref{fig:resmod} shows that variation in production remains at the level of what we observe in the dataset only with the {\footnotesize\textbf{VT+HT}}~model.
     \begin{figure}[h!]
 	\begin{tabular}{cc}
 	    \centering
-	    External Diameter & Protruring Rim\\
-	    \includegraphics[width=0.4\linewidth]{images/ED_densities.pdf}&
-	    \includegraphics[width=0.4\linewidth]{images/PR_densities.pdf}\\
+	    \small   External Diameter & \small Protruring Rim\\
+	    \includegraphics[width=0.5\linewidth]{images/ED_densities.pdf}&
+	    \includegraphics[width=0.5\linewidth]{images/PR_densities.pdf}\\
 	\end{tabular}
 \singlespace
 \vspace{-.8cm}
-\caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep in setup where the horizontal transfer probability varies (100 simulations per condition). The red line correspond to the variation measured on the real data}
+\caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep for both model (100 simulations per model). The red line correspond to the variation measured on the real data}
 	\label{fig:resmod}
     \end{figure}
 \vspace{-1cm}
