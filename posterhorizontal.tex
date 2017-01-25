@@ -182,55 +182,60 @@ The pattern observed in the firsts 2 Principal Components suggests that amphorae
 \justify
 We developed a model based on classical random drift~\cite{bentley2004randomdriftandculturechange} mimicking our original dataset. In this model, we define $5$ workshops all sharing the same production techniques $T^{0}$. 
 Each workshop produces amphorae and changes their production techniques by: modifying their own techniques (Vertical Transmission, VT) or by copying one from another workshop (Horizontal Transmission, HT). 
-%The probability that inovation occurs (the proba of a \emph{Vertical Transmission}, VT) is the same for everyone, whereas the probability that one workshop copies another (the proba of an \emph{Horizontal Transmission}, HT) depends on the distances between the workshops, distances that follow the positions given in the Fig.~\ref{fig:betica}.
 
-The algorithm is the following:   
+The production of the amphora is represented by two measurements (External Diameter \& Protruding Rim) defined using the original dataset.
 
-\begin{center}
-    \fbox{
 
-	\centering
-	\begin{minipage}{.9\textwidth}
-	%\begin{algorithm}[H]
-	    \begin{algorithmic}
-		\footnotesize
-		\State INITIALIZATION:
-		\For{$i \in Pop$}
-		\State $T^{i} = T^{0}$
-		\EndFor
-		\State SIMULATION:
-		\Loop{$~step \in TimeSteps$}
-		\For{$i \in Pop$}
-		\State $AmphoraProduction(T^{i})$
-		\If{$ (step \mod 100) = 0$}	
-		\State (1)$Innovation(T^{i})$ \Comment{Vertical Transmission, VT}
-		\State (2)$RandomCopy(T^{i},Pop)$	\Comment{Horizontal Transmission, HT}
-		\EndIf
-		\EndFor
-		\EndLoop
-	    \end{algorithmic}
-	    %\caption{Model }
-	    %\label{alg:mod}
-	    %\line(1,0){\textwidth}
-	%\end{algorithm}
-	\end{minipage}
-
-    }
-\end{center}
+%The algorithm is the following:   
+%
+%\begin{center}
+%    \fbox{
+%
+%	\centering
+%	\begin{minipage}{.9\textwidth}
+%	%\begin{algorithm}[H]
+%	    \begin{algorithmic}
+%		\footnotesize
+%		\State INITIALIZATION:
+%		\For{$i \in Pop$}
+%		\State $T^{i} = T^{0}$
+%		\EndFor
+%		\State SIMULATION:
+%		\Loop{$~step \in TimeSteps$}
+%		\For{$i \in Pop$}
+%		\State $AmphoraProduction(T^{i})$
+%		\If{$ (step \mod 100) = 0$}	
+%		\State (1)$Innovation(T^{i})$ \Comment{Vertical Transmission, VT}
+%		\State (2)$RandomCopy(T^{i},Pop)$	\Comment{Horizontal Transmission, HT}
+%		\EndIf
+%		\EndFor
+%		\EndLoop
+%	    \end{algorithmic}
+%	    %\caption{Model }
+%	    %\label{alg:mod}
+%	    %\line(1,0){\textwidth}
+%	%\end{algorithm}
+%	\end{minipage}
+%
+%    }
+%\end{center}
+To test the influence of HT and VT on the patterns observed we defined three setups:\\
+\begin{enumerate}
+    \item  \hspace{5mm}{\footnotesize\textbf{VT}}: probability of random copy between workshop is set to~$0$. Changes come only from vertical transmission.\\
+    \item \hspace{5mm}{\footnotesize\textbf{VT+HT(d)}}: probability of random copy \emph{proportional to distance} between workshops. \\
+    \item  \hspace{5mm}{\footnotesize\textbf{VT+HT}}: probability of random copy \emph{equal} between all workshops. \\
+\end{enumerate}
+%Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
 \end{column}
 
 \begin{column}{1.025\onecolwid} %first subcolumn right
-{\textbf{Experiment \& Result}}\\
+{\textbf{Result}}\\
 \justify
-To test the influence of HT and VT on the patterns observed we defined two models:\\
-\hspace{5mm}{\footnotesize\textbf{VT}}: proba of random copy between workshop is set to~$0$. Changes come from Vertical transmission only.\\
-\hspace{5mm}{\footnotesize\textbf{VT+HT}}: proba of random copy proportionnal to distance between workshops. Changes come from horizontal \emph{and} vertical transmission.\\
-%Amphorae are describe by on trait and we look how this trait varies between each workshop at the end of the simulation.
-Fig.~\ref{fig:resmod} shows that variation in production remains at the level of what we observe in the dataset only with the {\footnotesize\textbf{VT+HT}}~model.
+\vspace{-1cm}
     \begin{figure}[h!]
 	\begin{tabular}{cc}
 	    \centering
-	    \small   External Diameter & \small Protruring Rim\\
+	    \small   External Diameter & \small Protruding Rim\\
 	    \includegraphics[width=0.5\linewidth]{images/ED_densities.pdf}&
 	    \includegraphics[width=0.5\linewidth]{images/PR_densities.pdf}\\
 	\end{tabular}
@@ -239,7 +244,7 @@ Fig.~\ref{fig:resmod} shows that variation in production remains at the level of
 \caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep for both model (100 simulations per model). The red line correspond to the variation measured on the real data}
 	\label{fig:resmod}
     \end{figure}
-\vspace{-1cm}
+Fig.~\ref{fig:resmod} shows that when only vertical transmission is acting ({\footnotesize\textbf{VT}}), the variation is higher than the observed variation: the techniques diverge more and more due to random drift. On the other hand, when horizontal transmission isn't correlated to spatial distance ({\footnotesize\textbf{VT+HT}}), variation is too low: all workshops tend to use the same techniques and produce similar amphora. Finally it's when the horizontal transmission is biased toward the distance between workshops ({\footnotesize\textbf{VT+HT(d)}}), that the variation gets closer to the one observed in the dataset.
 \end{column}
 \end{columns}
 
