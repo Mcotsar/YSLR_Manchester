@@ -59,9 +59,9 @@
 \title{Cultural changes of baetican olive oil amphorae from an evolutionary perspective}
 
 
-\author{Maria Coto- Sarmiento$^{1,2}$, Simon Carrignon$^{1,3}$ and Xavier Rubio-Campillo$^{1}$} % Author(s)
+\author{Maria Coto-Sarmiento$^{1}$, Simon Carrignon$^{1,2}$ and Xavier Rubio-Campillo$^{3}$} % Author(s)
 
-\institute{$^1$Barcelona Supercomputing Center -- $^2$University of Barcelona -- $^3$Universitat Pompeu Fabra} % Institution(s)
+\institute{$^1$Barcelona Supercomputing Center -- $^2$Universitat Pompeu Fabra -- $^3$University of Edinburgh} % Institution(s)
 
 %----------------------------------------------------------------------------------------
 
@@ -88,13 +88,8 @@
 
 \justify
 
-Indicators of variability in material culture can explain how cultural processes evolve over time and space~\cite{lipo}. In particular, our study aims to analyse the changes in the large-scale amphorae production during the Roman Empire. This study explores the question of transmission on the learning techniques processes. Specifically, we are interested on understanding if pottery-making techniques were transmitted through vertical or horizontal social learning. If vertical transmission predominates in this process then amphorae made in nearby workshops may share more similar traits than amphorae from farthest workshops~\cite{bjo}. We also analysed the correlation between spatial distance and morphometric variation by exploring test. In this work we have explored the social learning processes associated with amphorae production through a combination of empirical analysis and theoretical exploration.   
+Archaeological indicators of variability in material culture can explain how cultural processes evolve over time and space~\cite{lipo}. In particular, our study aims to analyse the changes in the amphorae production patterns during the Roman Empire. This study explores the question of transmission on the learning techniques processes. Specifically, we are interested in understanding if pottery-making techniques were transmitted through vertical or horizontal social learning. If vertical transmission predominates in this process then amphorae made in nearby workshops may share more similar traits than amphorae from farthest workshops~\cite{bjo}. We also analysed the correlation between spatial distance and morphometric variation by exploring test. In this work we have explored the social learning processes associated with amphorae production through a combination of empirical analysis and theoretical exploration.   
 
-%by simulating test
-
-
-%Material culture variability allows us to interpret the change in the production processes~\cite{lycett}. In particular, this study is exploring this question by analyzing large-scale amphorae production during the Roman Empire. Specifically, we are interested on understanding if pottery-making techniques were transmitted thought vertical or horizontal social learning. If vertical is the one in use, amphorae made in nearby workshops might share more similar traits than amphorae made from farthest workshops, following isolation-by distance~\cite{bjo}.  We test it by observing the existence of a correlation between spatial distance and morphometric variation. In this work we have explored the social learning processes associated with amphorae production through a combination of empirical analysis and theoretical exploration. 
-%Variations observed over time in artifacts can explain cultural processes
 
 \end{block}
 
@@ -119,7 +114,7 @@ We have analyzed 470 amphorae (fig.\ref{fig:betica}~(b)) from 5 different worksh
 \end{tabular}
 
 \singlespace
-\caption{a) More than 80 pottery workshops were distributed along the Guadalquivir river and its tributary the Genil. Red circles belong to the workshops analyzed. b) Dressel 20 amphora}
+\caption{a) More than 80 pottery workshops were distributed along the Guadalquivir river and its tributary the Genil. Red points correspond to the workshops analyzed. b) Dressel 20 amphora}
 \label{fig:betica}
 \end{figure}
 
@@ -163,7 +158,7 @@ The pattern observed in the firsts 2 Principal Components suggests that amphorae
 
 \begin{column}{\twocolwid} %first subcolumn left
 \begin{figure}
-\includegraphics[width=0.6\linewidth]{images/fig2.pdf}
+\includegraphics[width=0.65\linewidth]{images/fig2.pdf}
 \singlespace
 \caption{First and Second Principal Components for amphorae measured from the 5 analysed workshops}
 \label{fig:pca}
@@ -183,45 +178,15 @@ The pattern observed in the firsts 2 Principal Components suggests that amphorae
 We developed a model based on classical random drift~\cite{bentley2004randomdriftandculturechange} mimicking our original dataset. In this model, we define $5$ workshops all sharing the same production techniques $T^{0}$. 
 Each workshop produces amphorae and changes their production techniques by: modifying their own techniques (Vertical Transmission, VT) or by copying one from another workshop (Horizontal Transmission, HT). 
 
-The production of the amphora is represented by two measurements (External Diameter \& Protruding Rim) defined using the original dataset.
+We used the more significant measurements (External Diameter \& Protruding Rim) taken from the original dataset as the amphora's representation in the model.
+
+%The production of the amphora is represented by two measurements (External Diameter \& Protruding Rim) defined using the original dataset.
+\vspace{1cm}
 
 
-%The algorithm is the following:   
-%
-%\begin{center}
-%    \fbox{
-%
-%	\centering
-%	\begin{minipage}{.9\textwidth}
-%	%\begin{algorithm}[H]
-%	    \begin{algorithmic}
-%		\footnotesize
-%		\State INITIALIZATION:
-%		\For{$i \in Pop$}
-%		\State $T^{i} = T^{0}$
-%		\EndFor
-%		\State SIMULATION:
-%		\Loop{$~step \in TimeSteps$}
-%		\For{$i \in Pop$}
-%		\State $AmphoraProduction(T^{i})$
-%		\If{$ (step \mod 100) = 0$}	
-%		\State (1)$Innovation(T^{i})$ \Comment{Vertical Transmission, VT}
-%		\State (2)$RandomCopy(T^{i},Pop)$	\Comment{Horizontal Transmission, HT}
-%		\EndIf
-%		\EndFor
-%		\EndLoop
-%	    \end{algorithmic}
-%	    %\caption{Model }
-%	    %\label{alg:mod}
-%	    %\line(1,0){\textwidth}
-%	%\end{algorithm}
-%	\end{minipage}
-%
-%    }
-%\end{center}
-To test the influence of HT and VT on the patterns observed we defined three setups:\\
+To test the influence of HT and VT on the patterns observed we designed three setups:\\
 \begin{enumerate}
-    \item  \hspace{5mm}{\footnotesize\textbf{VT}}: probability of random copy between workshop is set to~$0$. Changes come only from vertical transmission.\\
+    \item  \hspace{5mm}{\footnotesize\textbf{VT}}: probability of random copy between workshop is set to~$0$. Changes only come from vertical transmission.\\
     \item \hspace{5mm}{\footnotesize\textbf{VT+HT(d)}}: probability of random copy \emph{proportional to distance} between workshops. \\
     \item  \hspace{5mm}{\footnotesize\textbf{VT+HT}}: probability of random copy \emph{equal} between all workshops. \\
 \end{enumerate}
@@ -244,7 +209,7 @@ To test the influence of HT and VT on the patterns observed we defined three set
 \caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep for both model (100 simulations per model). The red line correspond to the variation measured on the real data}
 	\label{fig:resmod}
     \end{figure}
-Fig.~\ref{fig:resmod} shows that when only vertical transmission is acting ({\footnotesize\textbf{VT}}), the variation is higher than the observed variation: the techniques diverge more and more due to random drift. On the other hand, when horizontal transmission isn't correlated to spatial distance ({\footnotesize\textbf{VT+HT}}), variation is too low: all workshops tend to use the same techniques and produce similar amphora. Finally it's when the horizontal transmission is biased toward the distance between workshops ({\footnotesize\textbf{VT+HT(d)}}), that the variation gets closer to the one observed in the dataset.
+Fig.~\ref{fig:resmod} shows that when vertical transmission is only acting ({\footnotesize\textbf{VT}}), the variation is higher than the observed variation: the techniques diverge more and more due to random drift. On the other hand, when horizontal transmission is not correlated to spatial distance ({\footnotesize\textbf{VT+HT}}), variation is too low: all workshops tend to use the same techniques and produce similar amphorae. Finally it is when the horizontal transmission is biased toward the distance between workshops ({\footnotesize\textbf{VT+HT(d)}}), that the variation gets closer to the one observed in the dataset.
 \end{column}
 \end{columns}
 
@@ -261,10 +226,16 @@ Fig.~\ref{fig:resmod} shows that when only vertical transmission is acting ({\fo
 \begin{block}{Discussion}
 \justify
 
-Empirical studies have identified variation on the learning processes among pottery workshops. We observe a variability correlated with spatial distance: the analysed morphometric traits show that the similarity between amphorae decrease with the spatial distance between the workshops they were produced.
-The combination with theoretical model suggests that vertical transmission would be the most probable main cultural mechanism of learning at the beginning.This could be interpreted by the fact that pottery techniques were learned from master to disciple. After simulating, the variation of the morphological selected traits among workshops was higher in vertical transmission than the real data. A low contact between workshops (VT) stimulated a high variation in morphological traits. By contrast, a continuous contact between workshops  provided a low variability of traits.
+Empirical studies have identified variation on the learning processes among pottery workshops. We observe that this variability is correlated with spatial distance: the analysed morphometric traits show that the similarity between amphorae decrease with the spatial distance between the workshops they were produced.
+
+The combination between empirical data with theoretical model suggests that the similarity on the morphological traits are produced by a continuous contact between closest workshops, as in the case of \textbf{VT+HT(d)}. By contrast, when we use the model where \textbf{HT} is not correlated to spatial distance the variation is lower than the empirical data. However, this variability in traits is higher than the real data when \textbf{VT} is the only one mechanism of transmission without contact between workshops. 
+
+This could be interpreted by the fact that pottery techniques were learned from master to disciple at the beginning and these potters exchanged the learning techniques with the nearest workshops. 
 
 
+
+
+%vertical transmission would be the most probable main cultural mechanism of learning at the beginning.This could be interpreted by the fact that pottery techniques were learned from master to disciple. After simulating, the variation of the morphological selected traits among workshops was higher in vertical transmission than the real data. A low contact between workshops (VT) stimulated a high variation in morphological traits. By contrast, a continuous contact between workshops  provided a low variability of traits.
 
 
 %This could be interpreted by the fact that pottery techniques were learned from master to disciple and that disciples remained in the workshop where they were trained.
@@ -319,7 +290,7 @@ The combination with theoretical model suggests that vertical transmission would
 
 \begin{center}
 \begin{tabular}{ccc}
-\includegraphics[width=0.52\linewidth]{images/epnet.png} & \hfill & \includegraphics[width=0.5\linewidth]{images/erc.png}
+\includegraphics[width=0.51\linewidth]{images/epnet.png} & \hfill & \includegraphics[width=0.45\linewidth]{images/erc.png}
 \end{tabular}
 \end{center}
 
